@@ -36,6 +36,12 @@ Route::group(['middleware' => 'admin_guest'], function() {
 Route::group(['middleware' => 'admin_auth'], function() {
     Route::post('admin_logout', 'AdminAuth\LoginController@logout');
     Route::get('/admin_home', 'AdminHomeController@index');
+    
+    /* User */
+    Route::get('/admin_users','User\UserController@index');
+    Route::get('/admin_user/{id}','User\UserController@getById');
+    Route::get('/admin_new_user','User\UserController@newUser');
+    Route::post('/admin_create','User\UserController@create');
 });
 
 // OAuth Routes
