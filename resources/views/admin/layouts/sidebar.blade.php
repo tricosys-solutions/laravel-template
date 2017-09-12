@@ -9,13 +9,12 @@
                 <a href="{{ url('admin_home')}}"><i class="fa fa-home"></i> <span>Home</span></a>
             </li>
             <li class=" {!! Request::is('admin_users') ? 'active' : '' !!}">
-                <a href="{{ url('admin_users')}}"><i class="fa fa-user"></i>  <span>Users</span></a>
+                <a href="{{ url('admin_users')}}"><i class="fa fa-user"></i> <span>Users</span></a>
             </li>
             <li class=" {!! Request::is('admin_roles') ? 'active' : '' !!}">
-                <a href="{{ url('admin_roles')}}"><i class="fa fa-file-text"></i>  <span>Roles</span></a>
+                <a href="{{ url('admin_roles')}}"><i class="fa fa-file-text"></i> <span>Roles</span></a>
             </li>
-        </ul>        
-
+        </ul>
     </section>
     <!-- /.sidebar -->
 </aside>
