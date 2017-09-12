@@ -11,6 +11,9 @@
             <li class=" {!! Request::is('admin_users') ? 'active' : '' !!}">
                 <a href="{{ url('admin_users')}}"><i class="fa fa-user"></i>  <span>Users</span></a>
             </li>
+            <li class=" {!! Request::is('admin_roles') ? 'active' : '' !!}">
+                <a href="{{ url('admin_roles')}}"><i class="fa fa-user"></i>  <span>Roles</span></a>
+            </li>
         </ul>        
 
     </section>

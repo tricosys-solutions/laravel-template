@@ -7,6 +7,7 @@ use Response;
 use App\Http\Controllers\Controller;
 use App\Models\User\UserService;
 use App\Models\User\UserCreateDTO;
+use App\Models\User\userUpdateDTO;
 
 class UserController extends Controller {
 
@@ -19,19 +20,18 @@ class UserController extends Controller {
         }
     }
 
-    public function getById($id) {
+    public function find($id) {
         try {
-            $user = UserService::getById($id);
+            $user = UserService::find($id);
             return view('admin.user.editUser', compact('user'));
         } catch (\Exception $ex) {
             return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]], IlluminateResponse::HTTP_BAD_REQUEST);
         }
     }
-    
-    public function newUser(){
+
+    public function newUser() {
         return view('admin.user.createUser');
     }
-
 
     public function create(Request $request) {
         try {
@@ -44,27 +44,33 @@ class UserController extends Controller {
             if (!empty($user_r)) {
                 $user_r['message'] = "User Created successfully!";
             }
-            return redirect('admin_new_user')->with('createMessage',$user_r['message']);
+            return redirect('admin_new_user')->with('createMessage', $user_r['message']);
         } catch (\Exception $ex) {
             return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]]);
         }
     }
 
-    public function update($id) {
+    public function update($id, Request $request) {
         try {
-            $userUpdate = Request::all();
-            $user = User::find($id);
-            $user->update($userUpdate);
-            return Response::json(["data" => "User Updated successfully"]);
+            $data = $request->all();
+            $user  = new userUpdateDTO();
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user_r = UserService::update($user, $id);
+            if (!empty($user_r)) {
+                return redirect('admin_users')->with('updateMessage', 'User Updated successfully!');
+            }
         } catch (\Exception $ex) {
-            return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]], IlluminateResponse::HTTP_BAD_REQUEST);
+            return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]]);
         }
     }
 
-    public function destroy($id) {
+    public function delete($id) {
         try {
-            User::find($id)->delete();
-            return Response::json(["data" => "User Deleted successfully"]);
+            $user_d = UserService::delete($id);
+            if ($user_d) {
+                return redirect('admin_users')->with('deleteMessage', 'User Deleted successfully!');
+            }
         } catch (\Exception $ex) {
             return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]], IlluminateResponse::HTTP_BAD_REQUEST);
         }

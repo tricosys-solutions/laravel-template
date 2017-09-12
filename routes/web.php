@@ -39,9 +39,19 @@ Route::group(['middleware' => 'admin_auth'], function() {
     
     /* User */
     Route::get('/admin_users','User\UserController@index');
-    Route::get('/admin_user/{id}','User\UserController@getById');
+    Route::get('/admin_user/{id}','User\UserController@find');
     Route::get('/admin_new_user','User\UserController@newUser');
     Route::post('/admin_create','User\UserController@create');
+    Route::put('/admin_update/{id}','User\UserController@update');
+    Route::delete('/admin_delete/{id}','User\UserController@delete');
+    
+    /* Role */
+    Route::get('/admin_roles','Role\RoleController@index');
+    Route::get('/admin_role_new','Role\RoleController@newRole');
+    Route::post('/admin_role_create','Role\RoleController@create');
+    Route::get('/admin_role_edit/{id}','Role\RoleController@find');
+    Route::put('/admin_role_update/{id}','Role\RoleController@update');
+    Route::delete('/admin_role_delete/{id}','Role\RoleController@delete');
 });
 
 // OAuth Routes

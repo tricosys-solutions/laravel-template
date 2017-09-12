@@ -15,7 +15,7 @@ class UserService {
         return $users = Admin::all();
     }
     
-    public static function getById($id){
+    public static function find($id){
         return $user = Admin::find($id);
     }
     
@@ -24,5 +24,17 @@ class UserService {
         $user_r['email'] = $user->email;
         $user_r['password'] = Hash::make($user->password);
         return Admin::create($user_r);
+    }
+    
+    public static function update(UserUpdateDTO $user,$id){
+        $user_r = Admin::find($id);
+        $user_r['name'] = $user->name;
+        $user_r['email'] = $user->email;
+        return $user_r->update();
+    }
+    
+    public static function delete($id){
+        $user = Admin::find($id);
+        return $user->delete();
     }
 }
