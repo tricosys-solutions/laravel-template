@@ -4,13 +4,13 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'my_project');
+set('application', 'laravel-template');
 
 // Project repository
-set('repository', 'git@domain.com:username/repository.git');
+set('repository', 'https://github.com/tricosys-solutions/laravel-template.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', true); 
+set('git_tty', false); 
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
@@ -22,7 +22,10 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('project.com')
+host('202.88.188.165')
+    ->user('tricosys')
+    ->port(22)
+    ->identityFile('~/.ssh/id_rsa')
     ->set('deploy_path', '~/{{application}}');    
     
 // Tasks
