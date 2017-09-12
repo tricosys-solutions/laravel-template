@@ -14,7 +14,7 @@
             <a href="{{url('/admin_users')}}" class="btn btn-default" role="button"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to User List</a>
         </div>
         <h3>Add User</h3>
-        <form class="form-horizontal" id="frmAddUser" method="POST" action="{{url('/admin_create')}}">
+        <form class="form-horizontal" id="frmAddUser" method="POST" action="{{url('/admin_user_create')}}">
             {{ csrf_field() }}
             <div class="form-group">
                 <label class="control-label col-sm-2" for="name">Name:</label>

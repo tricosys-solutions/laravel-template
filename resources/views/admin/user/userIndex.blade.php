@@ -19,7 +19,7 @@
     @endif
     <div class="col-sm-12">
         <div class="margin-bottom">
-            <a href="{{url('/admin_new_user')}}" class="btn btn-default" role="button">
+            <a href="{{url('/admin_user_new')}}" class="btn btn-default" role="button">
                 <i class="fa fa-plus-circle text-primary" aria-hidden="true"></i> Add User
             </a>
         </div>
@@ -49,10 +49,10 @@
                         {{$user->email}}
                     </td>
                     <td>
-                        <a href="{{url('/admin_user',$user->id)}}" class="btn btn-default" role="button">
+                        <a href="{{url('/admin_user_edit',$user->id)}}" class="btn btn-default" role="button">
                             <i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i>
                         </a>
-                        <form class="inline delete" action="{{url('/admin_delete',$user->id)}}" method="POST">
+                        <form class="inline delete" action="{{url('/admin_user_delete',$user->id)}}" method="POST">
                             <input type="hidden" name="_method" value="DELETE">
                             {{ csrf_field() }}
                             <button class="btn btn-default" type="submit"><i class="fa fa-trash text-danger" aria-hidden="true"></i></button>

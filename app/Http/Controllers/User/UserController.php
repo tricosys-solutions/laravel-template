@@ -44,7 +44,7 @@ class UserController extends Controller {
             if (!empty($user_r)) {
                 $user_r['message'] = "User Created successfully!";
             }
-            return redirect('admin_new_user')->with('createMessage', $user_r['message']);
+            return redirect('admin_user_new')->with('createMessage', $user_r['message']);
         } catch (\Exception $ex) {
             return Response::json(["error" => ["code" => 400, "messages" => [$ex->getMessage()]]]);
         }

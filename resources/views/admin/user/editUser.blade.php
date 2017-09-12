@@ -22,7 +22,7 @@
             <a href="{{url('/admin_users')}}" class="btn btn-default" role="button"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back to User List</a>
         </div>
         <h3>Edit User</h3>
-        <form class="form-horizontal" id="frmAddUser" method="POST" action="{{url('/admin_update',$user->id)}}">
+        <form class="form-horizontal" id="frmAddUser" method="POST" action="{{url('/admin_user_update',$user->id)}}">
             {{ csrf_field() }}
             <input type="hidden" name="_method" value="PUT">
             <div class="form-group">

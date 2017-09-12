@@ -39,11 +39,11 @@ Route::group(['middleware' => 'admin_auth'], function() {
     
     /* User */
     Route::get('/admin_users','User\UserController@index');
-    Route::get('/admin_user/{id}','User\UserController@find');
-    Route::get('/admin_new_user','User\UserController@newUser');
-    Route::post('/admin_create','User\UserController@create');
-    Route::put('/admin_update/{id}','User\UserController@update');
-    Route::delete('/admin_delete/{id}','User\UserController@delete');
+    Route::get('/admin_user_edit/{id}','User\UserController@find');
+    Route::get('/admin_user_new','User\UserController@newUser');
+    Route::post('/admin_user_create','User\UserController@create');
+    Route::put('/admin_user_update/{id}','User\UserController@update');
+    Route::delete('/admin_user_delete/{id}','User\UserController@delete');
     
     /* Role */
     Route::get('/admin_roles','Role\RoleController@index');
