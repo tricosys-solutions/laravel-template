@@ -1,5 +1,5 @@
 RewriteEngine On
 #Redirection to subfolder.
-RewriteCond %{HTTP_HOST} ^(www\.)?laravel-multiauth\.local
+RewriteCond %{HTTP_HOST} ^(www\.)?livesocial\.in
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule ^(.*)$ public/$1 [L]  
