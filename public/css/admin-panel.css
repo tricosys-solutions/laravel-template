@@ -1,0 +1,33 @@
+#viewPermissionDiv table{
+    width: 100%;
+}
+#viewPermissionDiv table th{
+    padding: 5px 10px !important;
+    font-weight: bold;
+}
+#viewPermissionDiv table td{
+    padding: 5px 10px !important;
+}
+.content-wrapper{
+    background-color: #fff !important;
+}
+.skin-blue .main-header .navbar,.skin-blue .main-header .logo{
+    background-color:#222a32;
+    border-bottom: 1px solid #1c2229;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover{
+    background-color:#38444f;
+}
+.skin-blue .main-header .logo:hover{
+    background-color:#222a32;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side{
+    background-color: #38444f;
+}
+.skin-blue .sidebar-menu>li.active>a{
+    background-color: #03ade4;
+    /*border-left-color: #ffffff;*/
+}
+.btn{
+    border-radius: 0;
+}
