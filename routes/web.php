@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //Logged in admins cannot access or send requests these pages
 Route::group(['middleware' => 'admin_guest'], function() {
 
@@ -30,28 +31,28 @@ Route::group(['middleware' => 'admin_guest'], function() {
     Route::post('admin_password/reset', 'AdminAuth\ResetPasswordController@reset');
     Route::get('admin_password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm');
     Route::post('admin_password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail');
-    
 });
 //Only logged in admins can access or send requests to these pages
 Route::group(['middleware' => 'admin_auth'], function() {
     Route::post('admin_logout', 'AdminAuth\LoginController@logout');
     Route::get('/admin_home', 'AdminHomeController@index');
-    
+    Route::get('/admin_aboutus', 'AdminHomeController@aboutus');
+    Route::get('/admin_contactus', 'AdminHomeController@contactus');
     /* User */
-    Route::get('/admin_users','User\UserController@index');
-    Route::get('/admin_user_edit/{id}','User\UserController@find');
-    Route::get('/admin_user_new','User\UserController@newUser');
-    Route::post('/admin_user_create','User\UserController@create');
-    Route::put('/admin_user_update/{id}','User\UserController@update');
-    Route::delete('/admin_user_delete/{id}','User\UserController@delete');
-    
+    Route::get('/admin_users', 'User\UserController@index');
+    Route::get('/admin_user_edit/{id}', 'User\UserController@find');
+    Route::get('/admin_user_new', 'User\UserController@newUser');
+    Route::post('/admin_user_create', 'User\UserController@create');
+    Route::put('/admin_user_update/{id}', 'User\UserController@update');
+    Route::delete('/admin_user_delete/{id}', 'User\UserController@delete');
+
     /* Role */
-    Route::get('/admin_roles','Role\RoleController@index');
-    Route::get('/admin_role_new','Role\RoleController@newRole');
-    Route::post('/admin_role_create','Role\RoleController@create');
-    Route::get('/admin_role_edit/{id}','Role\RoleController@find');
-    Route::put('/admin_role_update/{id}','Role\RoleController@update');
-    Route::delete('/admin_role_delete/{id}','Role\RoleController@delete');
+    Route::get('/admin_roles', 'Role\RoleController@index');
+    Route::get('/admin_role_new', 'Role\RoleController@newRole');
+    Route::post('/admin_role_create', 'Role\RoleController@create');
+    Route::get('/admin_role_edit/{id}', 'Role\RoleController@find');
+    Route::put('/admin_role_update/{id}', 'Role\RoleController@update');
+    Route::delete('/admin_role_delete/{id}', 'Role\RoleController@delete');
 });
 
 // OAuth Routes

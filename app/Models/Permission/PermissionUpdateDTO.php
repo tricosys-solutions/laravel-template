@@ -14,5 +14,6 @@ namespace App\Models\Permission;
  * @author abhijitnaik
  */
 class PermissionUpdateDTO {
-    //put your code here
+    public $role_id;
+    public $permission;
 }

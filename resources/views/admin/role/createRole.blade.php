@@ -58,7 +58,7 @@
                 @endforeach
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="getPermissions()" class="btn btn-default" data-dismiss="modal"><i class="fa fa-save"></i> Save</button>
+                <button type="button" onclick="getPermissions()" class="btn btn-default" data-dismiss="modal"><i class="fa fa-save"></i> OK</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

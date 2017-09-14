@@ -9,6 +9,7 @@
 namespace App\Models\Role;
 
 use App\Models\Role\Role;
+use App\Models\Permission\Permission;
 /**
  * Description of RoleService
  *
@@ -21,7 +22,10 @@ class RoleService {
     }
     
     public static function find($id){
-        return $role = Role::find($id);
+        $data = [];
+        $data['role'] = Role::find($id);
+        $data['permission'] = Permission::where("role_id",$id)->get();
+        return $data;
     }
     
     public static function create(RoleCreateDTO $role){

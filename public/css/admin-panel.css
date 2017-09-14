@@ -13,7 +13,6 @@
 }
 .skin-blue .main-header .navbar,.skin-blue .main-header .logo{
     background-color:#222a32;
-    border-bottom: 1px solid #1c2229;
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover{
     background-color:#38444f;
@@ -26,8 +25,14 @@
 }
 .skin-blue .sidebar-menu>li.active>a{
     background-color: #03ade4;
-    /*border-left-color: #ffffff;*/
+    border-left-color: #ffffff;
 }
 .btn{
     border-radius: 0;
 }
+
+/*.page-header{
+    margin: 10px 20px 20px 20px;
+}*/
+
+#map{height: 200px;}

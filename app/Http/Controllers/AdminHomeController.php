@@ -25,4 +25,12 @@ class AdminHomeController extends Controller
     {
         return view('admin.home');
     }
+    public function aboutus()
+    {
+        return view('admin.aboutus');
+    }
+    public function contactus()
+    {
+        return view('admin.contactus');
+    }
 }
