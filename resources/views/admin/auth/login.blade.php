@@ -21,8 +21,7 @@
     <body class="hold-transition login-page">
         <div id="loginBox" class="login-box">
             <div class="login-logo">
-                <img src="{{asset('images/logo.png')}}" alt="" class="img-responsive"/>
-                <!--<a href="#"><b>Queens Fashion Hub admin Login</b></a>-->
+                Laravel Template
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <form role="form" method="POST" action="{{ url('/admin_login') }}">
@@ -48,22 +47,38 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                            </label>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                </label>
+                            </div>
                         </div>
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat btn-login submit">
+                                Login
+                            </button>
+                        </div>
+                        <!-- /.col -->
                     </div>
-
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-flat btn-login submit">
                             Login
                         </button>
-                        <a class="btn btn-link" href="{{ url('/admin_password/reset') }}">
-                            Forgot Your Password?
-                        </a>
-                    </div>
+                    </div>-->
+<!--                    <div class="social-auth-links text-center">
+                        <p>- OR -</p>
+                        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                            Facebook</a>
+                        <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                            Google+</a>
+                    </div>-->
+                    <!-- /.social-auth-links -->
+                    <a class="btn btn-link" href="{{ url('/admin_password/reset') }}">
+                        Forgot Your Password?
+                    </a>
                 </form>            
             </div><!-- /.login-box-body -->
         </div><!-- /.login-box -->
