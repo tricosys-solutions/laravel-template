@@ -1,10 +1,10 @@
-@extends('admin.layouts.admin')
-@section('content')
-<div class="page-header">
-    <h2>Contact Us</h2>
-</div>
-<div class="row">
+@extends('layouts.app')
 
+@section('content')
+<div class="container">
+    <div class="page-header">
+        <h2>Contact Us</h2>
+    </div>
     <div class="col-sm-7">
         <form class="form-horizontal" id="frmContactUs" method="POST" action="{{url('/admin_contact_us')}}">
             {{ csrf_field() }}
@@ -60,16 +60,14 @@
         </div>
         <div class="col-sm-1"></div>
     </div>
+
+
     <div class="col-sm-12">
-        <div id="map"></div>
+        <div id="map" style="height: 250px"></div>
     </div>
+    <script src="{{asset('scripts/contactus.js')}}"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Oi47roKLgfI23qii9gSpqDze7TafDWQ&callback=initMap">
+    </script>
 </div>
-
-@endsection
-@section('scripts')
-<script src="{{asset('scripts/contactus.js')}}"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Oi47roKLgfI23qii9gSpqDze7TafDWQ&callback=initMap">
-
-</script>
 @endsection

@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/aboutus', 'PageController@aboutus')->name('aboutus');
+Route::get('/contactus', 'PageController@contactus')->name('contactus');
 
 
 //Logged in admins cannot access or send requests these pages
@@ -36,8 +38,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
 Route::group(['middleware' => 'admin_auth'], function() {
     Route::post('admin_logout', 'AdminAuth\LoginController@logout');
     Route::get('/admin_home', 'AdminHomeController@index');
-    Route::get('/admin_aboutus', 'AdminHomeController@aboutus');
-    Route::get('/admin_contactus', 'AdminHomeController@contactus');
+//    Route::get('/admin_aboutus', 'AdminHomeController@aboutus');
+//    Route::get('/admin_contactus', 'AdminHomeController@contactus');
     /* User */
     Route::get('/admin_users', 'User\UserController@index');
     Route::get('/admin_user_edit/{id}', 'User\UserController@find');

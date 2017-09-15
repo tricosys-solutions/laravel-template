@@ -14,12 +14,12 @@
             <li class=" {!! Request::is('admin_roles') ? 'active' : '' !!}">
                 <a href="{{ url('admin_roles')}}"><i class="fa fa-file-text"></i> <span>Roles</span></a>
             </li>
-            <li class=" {!! Request::is('admin_aboutus') ? 'active' : '' !!}">
+<!--            <li class=" {!! Request::is('admin_aboutus') ? 'active' : '' !!}">
                 <a href="{{ url('admin_aboutus')}}"><i class="fa fa-users"></i> <span>About Us</span></a>
             </li>
             <li class=" {!! Request::is('admin_contactus') ? 'active' : '' !!}">
                 <a href="{{ url('admin_contactus')}}"><i class="fa fa-mobile-phone"></i> <span>Contact Us</span></a>
-            </li>
+            </li>-->
         </ul>
     </section>
     <!-- /.sidebar -->
