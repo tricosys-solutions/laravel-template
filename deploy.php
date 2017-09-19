@@ -24,6 +24,7 @@ add('writable_dirs', []);
 
 host('202.88.188.165')
     ->user('tricosys')
+    ->multiplexing(false)
     ->port(22)
     ->identityFile('~/.ssh/id_rsa')
     ->set('deploy_path', '~/{{application}}');    
@@ -40,4 +41,3 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-
