@@ -17,7 +17,7 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top">
+            <nav class="navbar navbar-default">
                 <div class="container">
                     <div class="navbar-header">
 
@@ -60,6 +60,7 @@
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i> 
                                             Logout
                                         </a>
 
@@ -74,13 +75,13 @@
                     </div>
                 </div>
             </nav>
-
             @yield('content')
         </div>
 
         <!-- Scripts -->
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}" type="text/javascript"></script> 
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <!--<script src="{{ asset('js/app.js') }}" type="text/javascript"></script>-->
+        
     </body>
 </html>
