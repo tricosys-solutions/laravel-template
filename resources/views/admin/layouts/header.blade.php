@@ -16,17 +16,27 @@
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="user user-menu">
-                    <!--<a id="logout" href="#"> <span class="fa fa-sign-out" ></span></a>-->
-                    <a id="logout" href="{{ url('admin_logout') }}"
-                       onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                        <span class="fa fa-sign-out" ></span> Logout
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="hidden-xs">{{Auth::guard('web_admin')->user()->name}}</span>
                     </a>
-                    <form id="logout-form" action="{{url('admin_logout')}}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                    <ul class="dropdown-menu">
+                        <li class="user-body">
+                            <a href="{{url('admin_profile')}}">
+                                <span class="fa fa-users" ></span> Profile
+                            </a>
+                        </li>
+                        <li class="user-body">
+                            <a id="logout" href="{{ url('admin_logout') }}"
+                               onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                                <span class="fa fa-sign-out" ></span> Logout
+                            </a>
+                            <form id="logout-form" action="{{url('admin_logout')}}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
